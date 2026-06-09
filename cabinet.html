@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Личный кабинет — RUSANOVAshop</title>
+<meta name="description" content="Личный кабинет RUSANOVAshop — вход, регистрация и история заказов.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RUSANOVAshop">
+<meta property="og:title" content="Личный кабинет — RUSANOVAshop">
+<meta property="og:description" content="Вход, регистрация и история заказов в RUSANOVAshop.">
+<meta property="og:image" content="images/product1.web.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-animated"><span></span><span></span><span></span><span></span></div>
+<div class="light-rays"><span></span></div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">RUSANOVA<span>shop</span></a>
+    <nav class="main-nav">
+      <a href="index.html#catalog">Каталог</a>
+      <a href="payment.html">Оформить заказ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="payment.html" class="cart-link" aria-label="Корзина">
+        Корзина <span class="cart-count" id="cart-count">0</span>
+      </a>
+      <a href="cabinet.html" class="btn btn-ghost">Личный кабинет</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Блок входа/регистрации: показывается, если пользователь не авторизован -->
+  <div id="auth" class="form-page">
+    <h2>Вход в личный кабинет</h2>
+    <div class="form-tabs">
+      <div class="form-tab active" data-target="login-panel">Вход</div>
+      <div class="form-tab" data-target="register-panel">Регистрация</div>
+    </div>
+
+    <div id="login-panel" class="form-panel active">
+      <form id="login-form">
+        <div class="field">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="field">
+          <label for="login-password">Пароль</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+        <p class="form-msg" id="login-msg"></p>
+      </form>
+    </div>
+
+    <div id="register-panel" class="form-panel">
+      <form id="register-form">
+        <div class="field">
+          <label for="reg-name">Имя</label>
+          <input type="text" id="reg-name" required>
+        </div>
+        <div class="field">
+          <label for="reg-email">E-mail</label>
+          <input type="email" id="reg-email" required>
+        </div>
+        <div class="field">
+          <label for="reg-password">Пароль</label>
+          <input type="password" id="reg-password" required minlength="4">
+        </div>
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        <p class="form-msg" id="register-msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Личный кабинет: заполняется скриптом, если пользователь авторизован -->
+  <div id="account-block" class="account" style="display:none">
+    <div class="account-card">
+      <h3>Здравствуйте, <span id="account-name"></span>!</h3>
+      <p>E-mail: <span id="account-email"></span></p>
+      <button id="logout-btn" class="btn btn-ghost">Выйти из аккаунта</button>
+    </div>
+    <div class="account-card">
+      <h3>Мои заказы</h3>
+      <div id="orders-list"></div>
+    </div>
+    <div class="account-card">
+      <h3>Дальнейшие шаги</h3>
+      <p>Добавьте товары в корзину в каталоге и перейдите на <a href="payment.html">страницу оплаты</a>, чтобы оформить заказ.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 RUSANOVAshop. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // показать кабинет вместо формы входа, если пользователь уже авторизован
+  (function () {
+    const user = JSON.parse(localStorage.getItem('rusanova_user') || 'null');
+    if (user) {
+      document.getElementById('auth').style.display = 'none';
+      document.getElementById('account-block').style.display = 'block';
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оплата заказа — RUSANOVAshop</title>
+<meta name="description" content="Оформление и оплата заказа в RUSANOVAshop — оверсайз-одежда для подростков с доставкой по Воронежу и России.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RUSANOVAshop">
+<meta property="og:title" content="Оплата заказа — RUSANOVAshop">
+<meta property="og:description" content="Оформление и оплата заказа в RUSANOVAshop.">
+<meta property="og:image" content="images/product1.web.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-animated"><span></span><span></span><span></span><span></span></div>
+<div class="light-rays"><span></span></div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">RUSANOVA<span>shop</span></a>
+    <nav class="main-nav">
+      <a href="index.html#catalog">Каталог</a>
+      <a href="cabinet.html">Личный кабинет</a>
+    </nav>
+    <div class="header-actions">
+      <a href="payment.html" class="cart-link" aria-label="Корзина">
+        Корзина <span class="cart-count" id="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="form-page">
+    <h2>Оформление и оплата заказа</h2>
+
+    <div id="pay-summary"></div>
+
+    <form id="pay-form" style="margin-top: 24px;">
+      <div class="field">
+        <label for="pay-name">Получатель</label>
+        <input type="text" id="pay-name" required>
+      </div>
+      <div class="field">
+        <label for="pay-address">Адрес доставки (Воронеж)</label>
+        <input type="text" id="pay-address" required>
+      </div>
+      <div class="field">
+        <label for="pay-card">Номер карты</label>
+        <input type="text" id="pay-card" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" required>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <div class="field" style="flex:1">
+          <label for="pay-expiry">Срок действия</label>
+          <input type="text" id="pay-expiry" placeholder="ММ/ГГ" maxlength="5" required>
+        </div>
+        <div class="field" style="flex:1">
+          <label for="pay-cvc">CVC</label>
+          <input type="text" id="pay-cvc" inputmode="numeric" maxlength="3" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Оплатить</button>
+      <p class="form-msg" id="pay-msg"></p>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 RUSANOVAshop. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

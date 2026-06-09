@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(\\(Get-Content index.html\\) -replace '\\\\.jpg', '.svg' | Set-Content -Encoding utf8 index.html)",
+      "PowerShell(py --version 2>&1)",
+      "PowerShell(Get-Command py,python3,python -ErrorAction SilentlyContinue)",
+      "PowerShell(Start-Process \"c:\\\\Users\\\\���३\\\\Clode\\\\index.html\")",
+      "PowerShell(if \\($env:ANTHROPIC_API_KEY\\) { \"key is set, length: $\\($env:ANTHROPIC_API_KEY.Length\\)\" } else { \"no key in current session\" })",
+      "PowerShell([System.Environment]::GetEnvironmentVariable\\(\"ANTHROPIC_API_KEY\", \"User\"\\))"
+    ]
+  }
+}
