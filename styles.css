@@ -1223,4 +1223,7 @@ section { padding: 110px 0; }
   .collage-card--a { width: 64%; }
   .collage-card--b { width: 56%; }
   .about-stats { gap: 36px; }
+  .issue-tag { display: none; }
+  .header-actions { gap: 12px; }
+  .btn-ghost { padding: 10px 14px; font-size: 10px; }
 }
